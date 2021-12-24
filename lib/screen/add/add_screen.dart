@@ -4,7 +4,6 @@ import 'package:techtrain_todo_app/component/add_button.dart';
 import 'package:techtrain_todo_app/component/add_item.dart';
 import 'package:techtrain_todo_app/component/add_item2.dart';
 import 'package:techtrain_todo_app/controller/controller.dart';
-import 'package:techtrain_todo_app/model/todo.dart';
 
 class AddScreen extends StatelessWidget {
   const AddScreen({
@@ -15,9 +14,10 @@ class AddScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(Controller(), tag: '');
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
+        backgroundColor: Colors.grey.shade200,
+        elevation: 1,
         title: const Text(
           '新規作成',
           style: TextStyle(
