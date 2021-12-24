@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:techtrain_todo_app/screen/home/home_screen_controller.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    //final controller = Get.put(HomeScreenController(), tag: '');
+    final controller = Get.put(HomeScreenController(), tag: '');
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
@@ -31,6 +34,11 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color(0xFF2654CB),
+        onPressed: controller.onTap,
+        child: const Icon(Icons.add),
       ),
     );
   }
