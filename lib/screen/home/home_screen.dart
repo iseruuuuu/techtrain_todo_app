@@ -12,15 +12,16 @@ class HomeScreen extends StatelessWidget {
     final deviceSize = MediaQuery.of(context).size;
     final todo = controller.todos;
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
       appBar: PreferredSize(
         preferredSize: Size.zero,
         child: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey.shade300,
           elevation: 0,
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,17 +39,21 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(
-                child: ListView.builder(
-                  controller: ScrollController(),
-                  itemCount: todo.length,
-                  itemExtent: 90,
-                  itemBuilder: (BuildContext context, int index) {
-                    final todoItem = todo[index];
-                    return TodoListItem(
-                      todo: todoItem,
-                    );
-                  },
+              Obx(
+                () => Expanded(
+                  child: ListView.builder(
+                    controller: ScrollController(),
+                    itemCount: todo.length,
+                    itemExtent: 111,
+                    itemBuilder: (BuildContext context, int index) {
+                      final todoItem = todo[index];
+                      return TodoListItem(
+                        todo: todoItem,
+                        onTap: () =>
+                            controller.onCheck(todo: todoItem, index: index),
+                      );
+                    },
+                  ),
                 ),
               ),
             ],
@@ -57,7 +62,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFF2654CB),
-        onPressed: controller.onTap,
+        onPressed: () => controller.onTap(),
         child: const Icon(Icons.add),
       ),
     );
