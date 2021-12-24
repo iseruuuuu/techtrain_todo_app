@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 @immutable
 class Todo {
@@ -9,6 +10,7 @@ class Todo {
   final String detail;
   final String day;
   final bool isCheck;
+  final Color color;
 
   Todo({
     required this.taskName,
@@ -16,6 +18,7 @@ class Todo {
     required this.detail,
     required this.day,
     required this.isCheck,
+    required this.color,
   }) : id = DateTime.now().millisecondsSinceEpoch.toString();
 
   const Todo.withId({
@@ -25,32 +28,45 @@ class Todo {
     required this.detail,
     required this.day,
     required this.isCheck,
+    required this.color,
   });
 
   static const initialTodos = [
     Todo.withId(
       id: '0',
-      taskName: 'アプリメモ',
-      category: '開発言語',
-      detail: 'メモ',
-      day: '11/11',
+      taskName: '個人は紫',
+      category: '個人',
+      detail: '説明',
+      day: '12/24(水)',
       isCheck: false,
+      color: Colors.purple,
     ),
     Todo.withId(
       id: 'ああああ',
-      taskName: 'あああ',
-      category: 'あああ',
-      detail: 'ああああ',
-      day: '22/22',
+      taskName: '仕事は水色',
+      category: '仕事',
+      detail: '説明',
+      day: '12/24(水)',
       isCheck: false,
+      color: Colors.lightBlueAccent,
     ),
     Todo.withId(
       id: '2',
-      taskName: '2',
-      category: '2',
-      detail: '2',
-      day: '33/33',
+      taskName: '買い物は緑',
+      category: '買い物',
+      detail: '説明',
+      day: '12/24(水)',
       isCheck: true,
+      color: Colors.green,
+    ),
+    Todo.withId(
+      id: '3',
+      taskName: 'その他は青',
+      category: 'その他',
+      detail: '説明',
+      day: '12/24(水)',
+      isCheck: true,
+      color: Colors.blue,
     ),
   ];
 
@@ -61,6 +77,7 @@ class Todo {
     String? detail,
     String? day,
     bool? isCheck,
+    Color? color,
   }) {
     return Todo.withId(
       id: id ?? this.id,
@@ -68,7 +85,8 @@ class Todo {
       category: category ?? this.category,
       detail: detail ?? this.detail,
       day: day ?? this.day,
-      isCheck: isCheck ?? this.isCheck
+      isCheck: isCheck ?? this.isCheck,
+      color: color ?? this.color,
     );
   }
 
@@ -80,6 +98,7 @@ class Todo {
       '5': detail,
       '6': day,
       '7': isCheck,
+      '8': color,
     });
   }
 
@@ -92,6 +111,7 @@ class Todo {
       detail: mapData['5'] as String,
       day: mapData['6'] as String,
       isCheck: mapData['7'] as bool,
+      color: mapData['8'] as Color,
     );
   }
 }

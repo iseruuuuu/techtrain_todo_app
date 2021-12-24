@@ -39,8 +39,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Obx(
-                () => Expanded(
+              Obx(() => Expanded(
                   child: ListView.builder(
                     controller: ScrollController(),
                     itemCount: todo.length,
