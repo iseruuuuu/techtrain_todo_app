@@ -7,10 +7,12 @@ class AddItem extends StatelessWidget {
     Key? key,
     required this.title,
     required this.hintText,
+    required this.onChange,
   }) : super(key: key);
 
   final String title;
   final String hintText;
+  final Function(String) onChange;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,10 @@ class AddItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AddTitleItem(title: title),
-        AddTextField(text: hintText),
+        AddTextField(
+          text: hintText,
+          onChange: onChange,
+        ),
       ],
     );
   }

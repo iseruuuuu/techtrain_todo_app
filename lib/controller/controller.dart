@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:techtrain_todo_app/model/todo.dart';
 import 'package:techtrain_todo_app/screen/add/add_screen.dart';
-import 'package:intl/intl.dart';
 
 class Controller extends GetxController {
   final todos = <Todo>[].obs;
