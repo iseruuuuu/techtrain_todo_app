@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:techtrain_todo_app/component/add_button.dart';
 import 'package:techtrain_todo_app/component/add_item.dart';
-import 'package:techtrain_todo_app/component/add_textfield.dart';
-import 'package:techtrain_todo_app/component/add_title_item.dart';
-import 'package:techtrain_todo_app/screen/add/add_screen_controller.dart';
+import 'package:techtrain_todo_app/controller/controller.dart';
 
 class AddScreen extends StatelessWidget {
   const AddScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(AddScreenController(), tag: '');
+    final controller = Get.put(Controller(), tag: '');
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -27,7 +25,7 @@ class AddScreen extends StatelessWidget {
           ),
         ),
         leading: IconButton(
-          onPressed: controller.onTap,
+          onPressed: controller.onTapClose,
           icon: const Icon(
             Icons.close,
             color: Colors.black,
@@ -48,7 +46,7 @@ class AddScreen extends StatelessWidget {
           ),
           AddItem(
             title: 'カテゴリー',
-            hintText: '年/月/日',
+            hintText: 'カテゴリー',
           ),
           AddItem(
             title: '詳細',
