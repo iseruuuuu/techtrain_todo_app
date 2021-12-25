@@ -18,7 +18,7 @@ class TodoListItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(16)),
-          color: todo.color,
+          color: Color(todo.color),
         ),
         child: ListTile(
           leading: IconButton(

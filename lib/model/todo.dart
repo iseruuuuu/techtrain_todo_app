@@ -10,7 +10,7 @@ class Todo {
   final String detail;
   final String day;
   final bool isCheck;
-  final Color color;
+  final int color;
 
   Todo({
     required this.taskName,
@@ -39,7 +39,7 @@ class Todo {
       detail: '説明',
       day: '12/24(水)',
       isCheck: false,
-      color: Colors.purple,
+      color: 0xFFA2A0EB,
     ),
     Todo.withId(
       id: 'ああああ',
@@ -48,7 +48,7 @@ class Todo {
       detail: '説明',
       day: '12/24(水)',
       isCheck: false,
-      color: Colors.lightBlueAccent,
+      color: 0xFF75AED7,
     ),
     Todo.withId(
       id: '2',
@@ -57,7 +57,7 @@ class Todo {
       detail: '説明',
       day: '12/24(水)',
       isCheck: true,
-      color: Colors.green,
+      color: 0xFF4EC88D,
     ),
     Todo.withId(
       id: '3',
@@ -66,7 +66,7 @@ class Todo {
       detail: '説明',
       day: '12/24(水)',
       isCheck: true,
-      color: Colors.blue,
+      color: 0xFF75AED7,
     ),
   ];
 
@@ -77,7 +77,7 @@ class Todo {
     String? detail,
     String? day,
     bool? isCheck,
-    Color? color,
+    int? color,
   }) {
     return Todo.withId(
       id: id ?? this.id,
@@ -111,7 +111,7 @@ class Todo {
       detail: mapData['5'] as String,
       day: mapData['6'] as String,
       isCheck: mapData['7'] as bool,
-      color: mapData['8'] as Color,
+      color: mapData['8'] as int,
     );
   }
 }

@@ -19,7 +19,8 @@ class AddButton extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: ElevatedButton(
           //TODO　この調整がまじでわからん。
-          onPressed: null,
+          //onPressed: null,
+          onPressed: onTap,
           //onPressed: onTap,
           // onPressed: () =>
           //   (isComplete)
