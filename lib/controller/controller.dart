@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:techtrain_todo_app/model/todo.dart';
@@ -20,7 +21,8 @@ class Controller extends GetxController {
   final day = ''.obs;
   final detail = ''.obs;
   Todo? todo;
-  final isSelected = false.obs;
+  final isDaySelected = false.obs;
+  final isCategorySelected = false.obs;
   final selectedColor = Colors.blue.obs;
 
   @override
@@ -63,7 +65,7 @@ class Controller extends GetxController {
                   itemExtent: 40,
                   children: items.map((n) => Text(n)).toList(),
                   onSelectedItemChanged: (index) {
-                    isSelected.value = true;
+                    isCategorySelected.value = true;
                     category.value = items[index];
                     switch (category.value) {
                       case '個人':
@@ -88,6 +90,20 @@ class Controller extends GetxController {
         );
       },
     );
+  }
+
+  void onTapDatePicker() {
+    DatePicker.showDatePicker(Get.context!,
+        theme: const DatePickerTheme(
+          containerHeight: 210.0,
+        ),
+        showTitleActions: true,
+        minTime: DateTime(1900, 1, 1),
+        maxTime: DateTime.now(), onConfirm: (date) {
+      day.value = '${date.day}/${date.month}/${date.weekday}';
+      print(day.value);
+      isDaySelected.value = true;
+    }, currentTime: DateTime.now(), locale: LocaleType.jp);
   }
 
   void onTap() {
