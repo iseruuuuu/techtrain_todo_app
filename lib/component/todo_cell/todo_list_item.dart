@@ -31,9 +31,7 @@ class TodoListItem extends StatelessWidget {
             ),
           ),
           title: Text(
-            '${todo.taskName}\n'
-            //TODO これはグレーじゃないとダメ、、
-            '${todo.detail}',
+            todo.taskName,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               color: Colors.white,
@@ -42,34 +40,50 @@ class TodoListItem extends StatelessWidget {
               fontSize: 17,
             ),
           ),
-          subtitle: Row(
+          subtitle: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: 64,
-                height: 22,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(4)),
-                  color: Colors.pink,
-                ),
-                child: Center(
-                  child: Text(
-                    //TODO X日前に設定する必要がある。
-                    '1日前',
-                    style: const TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
+              Text(
+                todo.detail,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  color: Colors.white60,
+                  fontWeight: FontWeight.normal,
+                  fontStyle: FontStyle.normal,
+                  fontSize: 17,
                 ),
               ),
-              const SizedBox(width: 20),
-              Text(
-                todo.day,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontStyle: FontStyle.normal,
-                  fontSize: 14,
-                ),
+              Row(
+                children: [
+                  Container(
+                    width: 64,
+                    height: 22,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(4)),
+                      color: Colors.pink,
+                    ),
+                    child: Center(
+                      child: Text(
+                        //TODO X日前に設定する必要がある。
+                        '1日前',
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 20),
+                  Text(
+                    todo.day,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
