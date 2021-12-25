@@ -8,18 +8,28 @@ class AddItem2 extends StatelessWidget {
     Key? key,
     required this.title,
     required this.hintText,
+    required this.noText,
+    required this.isSelected,
   }) : super(key: key);
 
   final String title;
   final String hintText;
+  final String noText;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AddTitleItem(title: title),
-       AddPicker(title: hintText),
+        AddTitleItem(
+          title: title,
+        ),
+        AddPicker(
+          title: hintText,
+          noTitle: noText,
+          isSelected: isSelected,
+        ),
       ],
     );
   }

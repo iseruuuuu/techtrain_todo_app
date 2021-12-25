@@ -42,31 +42,32 @@ class AddScreen extends StatelessWidget {
           AddItem(
             title: 'タスク名',
             hintText: '20文字以内で入力してください',
-            onChange: (text) => controller.onChange(text),
+            onChange: (text) => controller.onChange(word: text, index: 1),
           ),
           AddItem(
             title: '期日',
             hintText: '年/月/日',
-            onChange: (text) => controller.onChange(text),
+            onChange: (text) => controller.onChange(word: text, index: 2),
           ),
-          AddItem2(
-            title: 'カテゴリー',
-            hintText: '選択してください      ↓',
-          ),
+          // AddItem2(
+          //   title: 'カテゴリー',
+          //   hintText: '選択してください      ↓',
+          // ),
           AddItem(
             title: '詳細',
             hintText: '入力してください',
-            onChange: (text) => controller.onChange(text),
+            onChange: (text) => controller.onChange(word: text, index: 3),
           ),
-          Center(
-            child: AddButton(
-              // onTap: () => controller.isComplete.value
-              //     ? controller.onTapSubmit(todo: controller.todo)
-              //     : null,
-              //onTap: () => controller.onTapSubmit(todo: controller.todo),
-              onTap: () => controller.onTapSubmit(todo: controller.todo!),
-            ),
-          ),
+          // Center(
+          //   child: AddButton(
+          //     // onTap: () => controller.isComplete.value
+          //     //     ? controller.onTapSubmit(todo: controller.todo)
+          //     //     : null,
+          //     onTap: controller.onTapSubmit,
+          //     //onTap: () => controller.onTapSubmit(todo: todo!),
+          //     //onTap: () => controller.onTapSubmit(),
+          //   ),
+          // ),
         ],
       ),
     );

@@ -4,9 +4,11 @@ class AddButton extends StatelessWidget {
   const AddButton({
     Key? key,
     required this.onTap,
+    required this.isComplete,
   }) : super(key: key);
 
   final Function() onTap;
+  final bool isComplete;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,14 @@ class AddButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ElevatedButton(
-          // onPressed: null,
-          onPressed: onTap,
+          //TODO　この調整がまじでわからん。
+          onPressed: null,
+          //onPressed: onTap,
+          // onPressed: () =>
+          //   (isComplete)
+          //       ? null
+          //       : null
+          // ,
           child: const Text(
             '作成する',
             style: TextStyle(
