@@ -9,7 +9,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(Controller(), tag: '');
-    final deviceSize = MediaQuery.of(context).size;
     final todo = controller.todos;
     return Scaffold(
       backgroundColor: Colors.grey.shade300,
@@ -39,8 +38,8 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Obx(() => Expanded(
-                  child: ListView.builder(
+              Expanded(
+                child: Obx(() => ListView.builder(
                     controller: ScrollController(),
                     itemCount: todo.length,
                     itemExtent: 111,

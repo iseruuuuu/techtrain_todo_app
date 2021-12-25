@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:techtrain_todo_app/model/todo.dart';
 import 'package:techtrain_todo_app/screen/add/add_screen.dart';
+import 'package:techtrain_todo_app/screen/add/add_screen_ful.dart';
 
 class Controller extends GetxController {
   final todos = <Todo>[].obs;
@@ -19,6 +20,7 @@ class Controller extends GetxController {
   final day = ''.obs;
   final detail = ''.obs;
   Todo? todo;
+  final isSelected = false.obs;
 
   @override
   void onInit() {
@@ -46,7 +48,6 @@ class Controller extends GetxController {
       context: Get.context!,
       builder: (context) {
         return Container(
-          //Pickerの高さを指定。指定しない場合はフルスクリーン。
           height: 400,
           color: Colors.white,
           child: Column(
@@ -61,6 +62,7 @@ class Controller extends GetxController {
                   itemExtent: 40,
                   children: items.map((n) => Text(n)).toList(),
                   onSelectedItemChanged: (index) {
+                    isSelected.value = true;
                     category.value = items[index];
                   },
                 ),
@@ -75,7 +77,8 @@ class Controller extends GetxController {
   void onTap() {
     showCupertinoModalBottomSheet(
       context: Get.context!,
-      builder: (context) => AddScreen(),
+      //builder: (context) => AddScreen(),
+      builder: (context) => AddScreenFul(),
       expand: true,
     );
   }
@@ -84,26 +87,32 @@ class Controller extends GetxController {
     Get.back();
   }
 
-  void onChange(String word) {
-    print(word);
+  void onChange({required String word, required int index}) {
+    switch (index) {
+      case 1:
+        task.value = word;
+        break;
+      case 2:
+        day.value = word;
+        break;
+      case 3:
+        detail.value = word;
+        break;
+      default:
+    }
   }
 
-  void onTapSubmit({required Todo todo}) {
-    //TODO 登録する。
-    var newTodo = todo.copyWith(
-      taskName: task.value,
-      day: day.value,
-      category: category.value,
-      detail: detail.value,
-    );
-
-    print(task.value);
-    print(day.value);
-    print(category.value);
-    print(detail.value);
-
-    //登録できた？
-    //todos.add(newTodo);
-    //Get.back();
+   void onTapSubmit() {
+    //とりあえず、登録はできた。
+     final todo = Todo(
+       taskName: task.value,
+       day: day.value,
+       category: category.value,
+       detail: detail.value,
+       color: Colors.red,
+       isCheck: false,
+     );
+     todos.add(todo);
+     Get.back();
   }
 }
