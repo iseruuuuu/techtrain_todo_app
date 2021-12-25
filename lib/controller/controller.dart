@@ -99,7 +99,8 @@ class Controller extends GetxController {
         ),
         showTitleActions: true,
         minTime: DateTime(1900, 1, 1),
-        maxTime: DateTime.now(), onConfirm: (date) {
+        //maxTime: DateTime.now(),
+        maxTime: DateTime(2100, 1, 1), onConfirm: (date) {
       var weekday = '';
       switch (date.weekday) {
         case 1:
