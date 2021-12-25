@@ -13,6 +13,12 @@ class AddScreenFul extends StatefulWidget {
   _AddScreenFulState createState() => _AddScreenFulState();
 }
 
+//TODO AddScreenの状態管理(obx)ができない。
+//TODO cellが繋がっている -> cellを３行にしたい。
+//TODO 期日設定がまだできていない。
+//TODO ちょっとした修正（formなど）
+
+
 class _AddScreenFulState extends State<AddScreenFul> {
   @override
   Widget build(BuildContext context) {
