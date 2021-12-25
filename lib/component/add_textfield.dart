@@ -22,7 +22,7 @@ class AddTextField extends StatelessWidget {
         height: 60,
         color: const Color(0x292D364D),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.only(right: 10, left: 10, top: 5),
           child: TextField(
             onChanged: onChange,
             decoration: InputDecoration(
