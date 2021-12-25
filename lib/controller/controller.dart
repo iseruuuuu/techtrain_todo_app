@@ -100,8 +100,40 @@ class Controller extends GetxController {
         showTitleActions: true,
         minTime: DateTime(1900, 1, 1),
         maxTime: DateTime.now(), onConfirm: (date) {
-      day.value = '${date.day}/${date.month}/${date.weekday}';
-      print(day.value);
+      var weekday = '';
+      switch (date.weekday) {
+        case 1:
+          //月曜日
+          weekday = '(月)';
+          break;
+        case 2:
+          //火曜日
+          weekday = '(火)';
+          break;
+        case 3:
+          //水曜日
+          weekday = '(水)';
+          break;
+        case 4:
+          //木曜日
+          weekday = '(木)';
+          break;
+        case 5:
+          //金曜日
+          weekday = '(金)';
+          break;
+        case 6:
+          //土曜日
+          weekday = '(土)';
+          break;
+        case 7:
+          //日曜日
+          weekday = '(日)';
+          break;
+        default:
+      }
+      day.value = '${date.month}月${date.day}日$weekday';
+
       isDaySelected.value = true;
     }, currentTime: DateTime.now(), locale: LocaleType.jp);
   }
