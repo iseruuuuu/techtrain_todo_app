@@ -18,7 +18,7 @@ class AddPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(Controller(), tag: '');
     return GestureDetector(
-      onTap: controller.onTapcupertinoPicker,
+      onTap: controller.onTapCategoryPicker,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Container(
