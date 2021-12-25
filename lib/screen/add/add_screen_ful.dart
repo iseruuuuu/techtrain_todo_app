@@ -14,7 +14,6 @@ class AddScreenFul extends StatefulWidget {
 }
 
 //TODO AddScreenの状態管理(obx)ができない。
-//TODO cellが繋がっている -> cellを３行にしたい。
 //TODO 期日設定がまだできていない。
 //TODO ちょっとした修正（formなど）
 
