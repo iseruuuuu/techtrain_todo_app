@@ -14,6 +14,7 @@ class AddTitleItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 28),
       child: Text(
         title,
+        overflow: TextOverflow.ellipsis,
         style: const TextStyle(
           fontSize: 17,
           color: Color(0x292d3680),

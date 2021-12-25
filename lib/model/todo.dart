@@ -34,7 +34,7 @@ class Todo {
   static const initialTodos = [
     Todo.withId(
       id: '0',
-      taskName: '個人は紫',
+      taskName: '個人は紫dsadsddsdadsdadaddaadsadda',
       category: '個人',
       detail: '説明',
       day: '12/24(水)',

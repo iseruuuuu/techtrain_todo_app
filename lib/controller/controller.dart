@@ -21,6 +21,7 @@ class Controller extends GetxController {
   final detail = ''.obs;
   Todo? todo;
   final isSelected = false.obs;
+  final selectedColor = Colors.blue.obs;
 
   @override
   void onInit() {
@@ -64,6 +65,21 @@ class Controller extends GetxController {
                   onSelectedItemChanged: (index) {
                     isSelected.value = true;
                     category.value = items[index];
+                    switch (category.value) {
+                      case '個人':
+                        selectedColor.value == Colors.purple;
+                        break;
+                      case '仕事':
+                        selectedColor.value == Colors.lightBlueAccent;
+                        break;
+                      case '買い物':
+                        selectedColor.value == Colors.green;
+                        break;
+                      case 'その他':
+                        selectedColor.value == Colors.blue;
+                        break;
+                      default:
+                    }
                   },
                 ),
               ),
@@ -102,17 +118,17 @@ class Controller extends GetxController {
     }
   }
 
-   void onTapSubmit() {
+  void onTapSubmit() {
     //とりあえず、登録はできた。
-     final todo = Todo(
-       taskName: task.value,
-       day: day.value,
-       category: category.value,
-       detail: detail.value,
-       color: Colors.red,
-       isCheck: false,
-     );
-     todos.add(todo);
-     Get.back();
+    final todo = Todo(
+      taskName: task.value,
+      day: day.value,
+      category: category.value,
+      detail: detail.value,
+      color: selectedColor.value,
+      isCheck: false,
+    );
+    todos.add(todo);
+    Get.back();
   }
 }

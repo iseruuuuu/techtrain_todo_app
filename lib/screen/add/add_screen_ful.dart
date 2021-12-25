@@ -21,6 +21,7 @@ class _AddScreenFulState extends State<AddScreenFul> {
       appBar: AppBar(
         backgroundColor: Colors.grey.shade200,
         elevation: 1,
+        automaticallyImplyLeading: false,
         title: const Text(
           '新規作成',
           style: TextStyle(
@@ -30,13 +31,16 @@ class _AddScreenFulState extends State<AddScreenFul> {
             color: Colors.black,
           ),
         ),
-        leading: IconButton(
-          onPressed: controller.onTapClose,
-          icon: const Icon(
-            Icons.close,
-            color: Colors.black,
+        actions: [
+          IconButton(
+            onPressed: controller.onTapClose,
+            icon: const Icon(
+              Icons.close,
+              color: Colors.blue,
+              size: 30,
+            ),
           ),
-        ),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

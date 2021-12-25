@@ -34,6 +34,7 @@ class TodoListItem extends StatelessWidget {
             '${todo.taskName}\n'
             //TODO これはグレーじゃないとダメ、、
             '${todo.detail}',
+            overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.normal,
