@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:techtrain_todo_app/component/add_picker.dart';
-import 'package:techtrain_todo_app/component/add_textfield.dart';
+import 'package:techtrain_todo_app/component/category/add_picker.dart';
 import 'package:techtrain_todo_app/component/add_title_item.dart';
+import 'package:techtrain_todo_app/component/day/add_datepicker.dart';
 
-class AddItem2 extends StatelessWidget {
-  const AddItem2({
+class AddDayItem extends StatelessWidget {
+  const AddDayItem({
     Key? key,
     required this.title,
-    required this.hintText,
-    required this.noText,
+    required this.noTitle,
     required this.isSelected,
+    required this.hintText,
   }) : super(key: key);
 
   final String title;
-  final String hintText;
-  final String noText;
+  final String noTitle;
   final bool isSelected;
+  final String hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +25,11 @@ class AddItem2 extends StatelessWidget {
         AddTitleItem(
           title: title,
         ),
-        AddPicker(
-          title: hintText,
-          noTitle: noText,
+        AddDatePicker(
           isSelected: isSelected,
+          title: title,
+          noTitle: noTitle,
+          hintText: hintText,
         ),
       ],
     );

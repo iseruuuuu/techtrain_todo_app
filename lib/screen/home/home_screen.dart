@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:techtrain_todo_app/component/todo_list_item.dart';
+import 'package:techtrain_todo_app/component/todo_cell/todo_list_item.dart';
 import 'package:techtrain_todo_app/controller/controller.dart';
 
 class HomeScreen extends StatelessWidget {

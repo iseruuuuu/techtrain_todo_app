@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:techtrain_todo_app/component/day/add_day_item.dart';
 import 'package:techtrain_todo_app/controller/controller.dart';
 import '../../component/add_button.dart';
 import '../../component/add_item.dart';
-import '../../component/add_item2.dart';
+import '../../component/category/add_category_item.dart';
 
 class AddScreenFul extends StatefulWidget {
   const AddScreenFul({Key? key}) : super(key: key);
@@ -51,16 +52,23 @@ class _AddScreenFulState extends State<AddScreenFul> {
             hintText: '20文字以内で入力してください',
             onChange: (text) => controller.onChange(word: text, index: 1),
           ),
-          AddItem(
+          // AddItem(
+          //   title: '期日',
+          //   hintText: '年/月/日',
+          //   onChange: (text) => controller.onChange(word: text, index: 2),
+          // ),
+          AddDayItem(
             title: '期日',
-            hintText: '年/月/日',
-            onChange: (text) => controller.onChange(word: text, index: 2),
+            noTitle: '年/月/日',
+            hintText: controller.day.value,
+            isSelected: controller.isDaySelected.value,
           ),
-          AddItem2(
+
+          AddCategoryItem(
             title: 'カテゴリー',
             noText: '選択して下さい',
             hintText: controller.category.value,
-            isSelected: controller.isSelected.value,
+            isSelected: controller.isDaySelected.value,
           ),
           AddItem(
             title: '詳細',
