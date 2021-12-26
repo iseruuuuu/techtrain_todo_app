@@ -13,9 +13,10 @@ class AddScreenFul extends StatefulWidget {
   _AddScreenFulState createState() => _AddScreenFulState();
 }
 
-//TODO AddScreenの状態管理(obx)ができない。
 //TODO 期日設定がまだできていない。
 //TODO ちょっとした修正（formなど）
+//TODO 上にスワイプした時にisCompleteの状態を戻したい
+
 
 class _AddScreenFulState extends State<AddScreenFul> {
   @override
