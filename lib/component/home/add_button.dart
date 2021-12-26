@@ -23,7 +23,8 @@ class AddButton extends StatelessWidget {
             primary: AppColor.buttonColor,
             onPrimary: AppColor.buttonColor,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0)),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
           ),
           onPressed: isComplete ? () => onTap() : null,
           child: const Text(
