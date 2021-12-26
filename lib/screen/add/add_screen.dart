@@ -13,7 +13,6 @@ class AddScreen extends StatelessWidget {
 //TODO 期日を起動したたびに更新したい。->　見せるだけならいらない？？
 //TODO ちょっとした修正（formなど）
 //TODO 上にスワイプした時にisCompleteの状態を戻したい
-//TODO 日付のピッカーをyyyy/mm/ddにする必要あり
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,6 @@ import 'package:techtrain_todo_app/component/add/picker/picker.dart';
 import 'package:techtrain_todo_app/model/todo.dart';
 import 'package:techtrain_todo_app/preference/storage_service.dart';
 import 'package:techtrain_todo_app/screen/add/add_screen.dart';
-import 'package:techtrain_todo_app/screen/add/add_screen_ful.dart';
 
 class Controller extends GetxController {
   final todos = <Todo>[].obs;
@@ -59,7 +58,6 @@ class Controller extends GetxController {
       expand: true,
     );
   }
-
 
   void checkDeadline({required int deadline}) {
     if (deadline == 0) {
@@ -157,17 +155,15 @@ class Controller extends GetxController {
     }
     day.value = '${date.month}月${date.day}日$weekday';
     final Duration difference = date.difference(DateTime.now());
-
-    //print(difference.inDays);
+    if (date.day == DateTime.now().day) {
+      checkDeadline(deadline: 0);
+    } else {
+      checkDeadline(deadline: difference.inDays + 1);
+    }
     dataTime.value = '${date.year}/${date.month}/${date.day}';
-
-    checkDeadline(deadline: difference.inDays);
-
     isDaySelected.value = true;
     checkAllWrite();
   }
-
-
 
   void onTapClose() {
     Get.back();
@@ -176,7 +172,6 @@ class Controller extends GetxController {
     isDetail.value = false;
     isCategorySelected.value = false;
     isDaySelected.value = false;
-
   }
 
   void onChange({required String word, required int index}) {
