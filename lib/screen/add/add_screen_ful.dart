@@ -13,9 +13,10 @@ class AddScreenFul extends StatefulWidget {
   _AddScreenFulState createState() => _AddScreenFulState();
 }
 
-//TODO 期日設定がまだできていない。
+//TODO 期日を起動したたびに更新したい。->　見せるだけならいらない？？
 //TODO ちょっとした修正（formなど）
 //TODO 上にスワイプした時にisCompleteの状態を戻したい
+//TODO 日付のピッカーをyyyy/mm/ddにする必要あり
 
 
 class _AddScreenFulState extends State<AddScreenFul> {

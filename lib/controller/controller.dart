@@ -35,13 +35,15 @@ class Controller extends GetxController {
     final storageMemos =
         storage.load()?.map((json) => Todo.fromJson(json)).toList();
     final initialMemos = storageMemos ?? Todo.initialTodos;
-    todos.addAll(initialMemos);
+    _todos.addAll(initialMemos);
 
+    // _todosに変化がある度にストレージに保存
     worker = ever<List<Todo>>(todos, (memos) {
       final data = memos.map((e) => e.toJson()).toList();
       storage.save(data);
     });
 
+    //TODO 起動するたびに、期限の更新をする
     //checkDeadline(deadline: 1);
   }
 
@@ -55,20 +57,15 @@ class Controller extends GetxController {
     }
   }
 
-  //todo HomeScreen
-
   void onCheck({required Todo todo, required int index}) async {
     var isCheck = todo.isCheck;
     isCheck = !todo.isCheck;
     final newTodo = todo.copyWith(isCheck: isCheck);
     todos.setAll(index, [newTodo]);
 
-    //cellを削除する。
     await Future.delayed(const Duration(seconds: 1));
     todos.removeAt(index);
   }
-
-  //todo  AddScreen
 
   void onTapCategoryPicker() {
     showCupertinoModalPopup(
@@ -110,8 +107,8 @@ class Controller extends GetxController {
         containerHeight: 210.0,
       ),
       showTitleActions: true,
-      minTime: DateTime(1900, 1, 1),
-      maxTime: DateTime(2100, 1, 1),
+      minTime: DateTime.now(),
+      maxTime: DateTime(2030, 1, 1),
       onConfirm: onConfirm,
       currentTime: DateTime.now(),
       locale: LocaleType.jp,
