@@ -1,6 +1,7 @@
 # techtrain_todo_app
 
-値の例
+##値の例
+
 static const initialTodos = [
     Todo.withId(
       id: '0',
@@ -48,16 +49,30 @@ static const initialTodos = [
     ),
   ];
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+##更新するためのメソッド
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# techtrain_todo_app
+Todo copyWith({
+    String? id,
+    String? taskName,
+    String? category,
+    String? detail,
+    String? day,
+    bool? isCheck,
+    int? color,
+    String? deadline,
+    int? deadlineColor,
+  }) {
+    return Todo.withId(
+      id: id ?? this.id,
+      taskName: taskName ?? this.taskName,
+      category: category ?? this.category,
+      detail: detail ?? this.detail,
+      day: day ?? this.day,
+      isCheck: isCheck ?? this.isCheck,
+      color: color ?? this.color,
+      deadline: deadline ?? this.deadline,
+      deadlineColor: deadlineColor ?? this.deadlineColor,
+    );
+  }
