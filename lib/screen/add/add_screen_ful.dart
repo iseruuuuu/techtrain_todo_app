@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:techtrain_todo_app/component/day/add_day_item.dart';
 import 'package:techtrain_todo_app/controller/controller.dart';
 import '../../component/add_button.dart';
-import '../../component/add_item.dart';
+import '../../component/textfield/add_item.dart';
 import '../../component/category/add_category_item.dart';
 
 class AddScreenFul extends StatefulWidget {

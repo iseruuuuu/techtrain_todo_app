@@ -12,7 +12,6 @@ class Controller extends GetxController {
   final todos = <Todo>[].obs;
   final storage = TodoStorage();
   late final Worker worker;
-
   List<Todo> get _todos => todos;
   final items = <String>['仕事', '買い物', '個人', 'その他'];
   final category = ''.obs;
@@ -45,15 +44,23 @@ class Controller extends GetxController {
 
   void checkDeadline() {
     //TODO　ここで後何日を記載する。
+
+    //今日まで
+
+    //N日前
   }
 
   //todo HomeScreen
 
-  void onCheck({required Todo todo, required int index}) {
+  void onCheck({required Todo todo, required int index}) async {
     var isCheck = todo.isCheck;
     isCheck = !todo.isCheck;
     final newTodo = todo.copyWith(isCheck: isCheck);
     todos.setAll(index, [newTodo]);
+
+    //cellを削除する。
+    await Future.delayed(const Duration(seconds: 1));
+    todos.removeAt(index);
   }
 
   //todo  AddScreen

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:techtrain_todo_app/component/add_textfield.dart';
-import 'package:techtrain_todo_app/component/add_title_item.dart';
+import 'package:techtrain_todo_app/component/textfield/add_textfield.dart';
+import 'package:techtrain_todo_app/component/textfield/add_title_item.dart';
 
 class AddItem extends StatelessWidget {
   const AddItem({

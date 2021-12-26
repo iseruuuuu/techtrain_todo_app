@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:techtrain_todo_app/component/category/add_picker.dart';
-import 'package:techtrain_todo_app/component/add_title_item.dart';
+import 'package:techtrain_todo_app/component/textfield/add_title_item.dart';
 import 'package:techtrain_todo_app/component/day/add_datepicker.dart';
 
 class AddDayItem extends StatelessWidget {
