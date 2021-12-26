@@ -10,10 +10,8 @@ import 'package:techtrain_todo_app/screen/add/add_screen_ful.dart';
 
 class Controller extends GetxController {
   final todos = <Todo>[].obs;
-
   final storage = TodoStorage();
   late final Worker worker;
-
   List<Todo> get _todos => todos;
   final items = <String>['仕事', '買い物', '個人', 'その他'];
   final category = ''.obs;
@@ -24,8 +22,6 @@ class Controller extends GetxController {
   Todo? todo;
   final isDaySelected = false.obs;
   final isCategorySelected = false.obs;
-
-  //final selectedColor = Colors.blue.obs;
   final colorCode = 0xFF75AED7.obs;
 
   @override
@@ -36,7 +32,6 @@ class Controller extends GetxController {
     final initialMemos = storageMemos ?? Todo.initialTodos;
     todos.addAll(initialMemos);
 
-    // _todosに変化がある度にストレージに保存
     worker = ever<List<Todo>>(todos, (memos) {
       final data = memos.map((e) => e.toJson()).toList();
       storage.save(data);

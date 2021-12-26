@@ -6,12 +6,12 @@ class AddPicker extends StatelessWidget {
   const AddPicker({
     Key? key,
     required this.title,
-    required this.isSelected,
+    required this.isCategorySelected,
     required this.noTitle,
   }) : super(key: key);
 
   final String title;
-  final bool isSelected;
+  final bool isCategorySelected;
   final String noTitle;
 
   @override
@@ -28,10 +28,10 @@ class AddPicker extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
-              //TODO テキストがでない。。
-              isSelected ? title : noTitle,
+              isCategorySelected ? title : noTitle,
               style: TextStyle(
-                color: isSelected ? Colors.black : const Color(0x292D364D),
+                color:
+                    isCategorySelected ? Colors.black : const Color(0x292D364D),
                 fontSize: 17,
                 fontWeight: FontWeight.w400,
                 fontStyle: FontStyle.normal,

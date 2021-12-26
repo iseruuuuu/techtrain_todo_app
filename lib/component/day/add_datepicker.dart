@@ -5,13 +5,13 @@ import 'package:techtrain_todo_app/controller/controller.dart';
 class AddDatePicker extends StatelessWidget {
   const AddDatePicker({
     Key? key,
-    required this.isSelected,
+    required this.isDaySelected,
     required this.title,
     required this.noTitle,
     required this.hintText,
   }) : super(key: key);
 
-  final bool isSelected;
+  final bool isDaySelected;
   final String title;
   final String noTitle;
   final String hintText;
@@ -31,9 +31,9 @@ class AddDatePicker extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Text(
               //TODO テキストがでない。。
-              isSelected ? hintText : noTitle,
+              isDaySelected ? hintText : noTitle,
               style: TextStyle(
-                color: isSelected ? Colors.black : const Color(0x292D364D),
+                color: isDaySelected ? Colors.black : const Color(0x292D364D),
                 fontSize: 17,
                 fontWeight: FontWeight.w400,
                 fontStyle: FontStyle.normal,

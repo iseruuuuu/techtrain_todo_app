@@ -26,7 +26,7 @@ class AddDayItem extends StatelessWidget {
           title: title,
         ),
         AddDatePicker(
-          isSelected: isSelected,
+          isDaySelected: isSelected,
           title: title,
           noTitle: noTitle,
           hintText: hintText,

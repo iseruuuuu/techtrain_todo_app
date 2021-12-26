@@ -27,7 +27,7 @@ class AddCategoryItem extends StatelessWidget {
         AddPicker(
           title: hintText,
           noTitle: noText,
-          isSelected: isSelected,
+          isCategorySelected: isSelected,
         ),
       ],
     );

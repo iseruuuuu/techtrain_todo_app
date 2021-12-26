@@ -17,7 +17,6 @@ class AddScreenFul extends StatefulWidget {
 //TODO 期日設定がまだできていない。
 //TODO ちょっとした修正（formなど）
 
-
 class _AddScreenFulState extends State<AddScreenFul> {
   @override
   Widget build(BuildContext context) {
@@ -61,29 +60,29 @@ class _AddScreenFulState extends State<AddScreenFul> {
               hintText: '20文字以内で入力してください',
               onChange: (text) => controller.onChange(word: text, index: 1),
             ),
-            // AddItem(
-            //   title: '期日',
-            //   hintText: '年/月/日',
-            //   onChange: (text) => controller.onChange(word: text, index: 2),
-            // ),
-            AddDayItem(
-              title: '期日',
-              noTitle: '年/月/日',
-              hintText: controller.day.value,
-              isSelected: controller.isDaySelected.value,
+            Obx(
+              () => AddDayItem(
+                title: '期日',
+                noTitle: '年/月/日',
+                hintText: controller.day.value,
+                isSelected: controller.isDaySelected.value,
+              ),
             ),
-
-            AddCategoryItem(
-              title: 'カテゴリー',
-              noText: '選択して下さい',
-              hintText: controller.category.value,
-              isSelected: controller.isDaySelected.value,
+            Obx(
+              () => AddCategoryItem(
+                title: 'カテゴリー',
+                noText: '選択して下さい',
+                hintText: controller.category.value,
+                isSelected: controller.isCategorySelected.value,
+              ),
             ),
             AddItem(
               title: '詳細',
               hintText: '入力してください',
               onChange: (text) => controller.onChange(word: text, index: 3),
             ),
+
+            //TODO ここも状態管理をしたい
             Center(
               child: AddButton(
                 onTap: controller.onTapSubmit,
