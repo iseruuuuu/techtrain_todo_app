@@ -203,7 +203,9 @@ class Controller extends GetxController {
       deadlineColor: deadLineColor.value,
     );
     todos.add(todo);
+    allClear();
     Get.back();
+
   }
 
   void checkAllWrite() {
@@ -213,5 +215,23 @@ class Controller extends GetxController {
         isDetail.value == true) {
       isComplete.value = true;
     } else {}
+  }
+
+  void allClear() {
+    //入力内容を空にする。
+    task.value = '';
+    category.value = '';
+    detail.value = '';
+    day.value = '';
+    deadLine.value = '';
+
+    //記入確認を元に戻す.
+
+    isTaskName.value = false;
+    isDaySelected.value = false;
+    isCategorySelected.value = false;
+    isDetail.value = false;
+
+
   }
 }
