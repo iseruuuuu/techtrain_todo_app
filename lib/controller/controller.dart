@@ -35,7 +35,8 @@ class Controller extends GetxController {
     super.onInit();
     final storageMemos =
         storage.load()?.map((json) => Todo.fromJson(json)).toList();
-    final initialMemos = storageMemos ?? Todo.initialTodos;
+    //final initialMemos = storageMemos ?? Todo.initialTodos;
+    final initialMemos = storageMemos ?? [];
     _todos.addAll(initialMemos);
 
     // _todosに変化がある度にストレージに保存
