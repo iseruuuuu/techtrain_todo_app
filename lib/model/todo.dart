@@ -11,6 +11,8 @@ class Todo {
   final String day;
   final bool isCheck;
   final int color;
+  final String deadline;
+  final int deadlineColor;
 
   Todo({
     required this.taskName,
@@ -19,6 +21,8 @@ class Todo {
     required this.day,
     required this.isCheck,
     required this.color,
+    required this.deadline,
+    required this.deadlineColor,
   }) : id = DateTime.now().millisecondsSinceEpoch.toString();
 
   const Todo.withId({
@@ -29,6 +33,8 @@ class Todo {
     required this.day,
     required this.isCheck,
     required this.color,
+    required this.deadline,
+    required this.deadlineColor,
   });
 
   static const initialTodos = [
@@ -40,6 +46,8 @@ class Todo {
       day: '12/24(水)',
       isCheck: false,
       color: 0xFFA2A0EB,
+      deadline: '今日まで',
+      deadlineColor: 0xFF2654CD,
     ),
     Todo.withId(
       id: 'ああああ',
@@ -49,6 +57,8 @@ class Todo {
       day: '12/24(水)',
       isCheck: false,
       color: 0xFF75AED7,
+      deadline: '1日前',
+      deadlineColor: 0xFFF96983,
     ),
     Todo.withId(
       id: '2',
@@ -58,6 +68,8 @@ class Todo {
       day: '12/24(水)',
       isCheck: true,
       color: 0xFF4EC88D,
+      deadline: '2日前',
+      deadlineColor: 0xFFF96983,
     ),
     Todo.withId(
       id: '3',
@@ -67,6 +79,8 @@ class Todo {
       day: '12/24(水)',
       isCheck: true,
       color: 0xFF75AED7,
+      deadline: '3日前',
+      deadlineColor: 0xFFF96983,
     ),
   ];
 
@@ -78,6 +92,8 @@ class Todo {
     String? day,
     bool? isCheck,
     int? color,
+    String? deadline,
+    int? deadlineColor,
   }) {
     return Todo.withId(
       id: id ?? this.id,
@@ -87,6 +103,8 @@ class Todo {
       day: day ?? this.day,
       isCheck: isCheck ?? this.isCheck,
       color: color ?? this.color,
+      deadline: deadline ?? this.deadline,
+      deadlineColor: deadlineColor ?? this.deadlineColor,
     );
   }
 
@@ -99,6 +117,8 @@ class Todo {
       '6': day,
       '7': isCheck,
       '8': color,
+      '9': deadline,
+      '10': deadlineColor,
     });
   }
 
@@ -112,6 +132,8 @@ class Todo {
       day: mapData['6'] as String,
       isCheck: mapData['7'] as bool,
       color: mapData['8'] as int,
+      deadline: mapData['9'] as String,
+      deadlineColor: mapData['10'] as int,
     );
   }
 }

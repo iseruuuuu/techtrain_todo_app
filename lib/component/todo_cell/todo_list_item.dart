@@ -60,14 +60,13 @@ class TodoListItem extends StatelessWidget {
                   Container(
                     width: 64,
                     height: 22,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(4)),
-                      color: Colors.pink,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(4)),
+                      color: Color(todo.deadlineColor),
                     ),
                     child: Center(
                       child: Text(
-                        //TODO X日前に設定する必要がある。
-                        '1日前',
+                        todo.deadline,
                         style: const TextStyle(
                           color: Colors.white,
                         ),

@@ -12,12 +12,15 @@ class Controller extends GetxController {
   final todos = <Todo>[].obs;
   final storage = TodoStorage();
   late final Worker worker;
+
   List<Todo> get _todos => todos;
   final items = <String>['仕事', '買い物', '個人', 'その他'];
   final category = ''.obs;
   final task = ''.obs;
   final day = ''.obs;
   final detail = ''.obs;
+  final deadLine = ''.obs;
+  final deadLineColor = 0xFFF96983.obs;
   Todo? todo;
   final colorCode = 0xFF75AED7.obs;
   final isComplete = false.obs;
@@ -39,15 +42,17 @@ class Controller extends GetxController {
       storage.save(data);
     });
 
-    checkDeadline();
+    //checkDeadline(deadline: 1);
   }
 
-  void checkDeadline() {
-    //TODO　ここで後何日を記載する。
-
-    //今日まで
-
-    //N日前
+  void checkDeadline({required int deadline}) {
+    if (deadline == 0) {
+      deadLine.value = '今日まで';
+      deadLineColor.value = 0xFF2654CD;
+    } else {
+      deadLine.value = '$deadline日前';
+      deadLineColor.value = 0xFFF96983;
+    }
   }
 
   //todo HomeScreen
@@ -140,6 +145,12 @@ class Controller extends GetxController {
       default:
     }
     day.value = '${date.month}月${date.day}日$weekday';
+    final Duration difference = date.difference(DateTime.now());
+
+    //print(difference.inDays);
+
+    checkDeadline(deadline: difference.inDays);
+
     isDaySelected.value = true;
     checkAllWrite();
   }
@@ -184,6 +195,8 @@ class Controller extends GetxController {
       detail: detail.value,
       color: colorCode.value,
       isCheck: false,
+      deadline: deadLine.value,
+      deadlineColor: deadLineColor.value,
     );
     todos.add(todo);
     Get.back();
