@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:techtrain_todo_app/component/todo_cell/todo_list_item.dart';
+import 'package:techtrain_todo_app/color/app_color.dart';
+import 'package:techtrain_todo_app/component/home/floating_action_button/floating_action_button.dart';
+import 'package:techtrain_todo_app/component/home/todo_cell/todo_list_item.dart';
 import 'package:techtrain_todo_app/controller/controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,11 +13,11 @@ class HomeScreen extends StatelessWidget {
     final controller = Get.put(Controller(), tag: '');
     final todo = controller.todos;
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: AppColor.appColor,
       appBar: PreferredSize(
         preferredSize: Size.zero,
         child: AppBar(
-          backgroundColor: Colors.grey.shade300,
+          backgroundColor: AppColor.appColor,
           elevation: 0,
         ),
       ),
@@ -26,7 +28,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Padding(
-                padding: EdgeInsets.only(right: 24, left: 24, top: 76),
+                padding: EdgeInsets.only(right: 24, left: 24, top: 28),
                 child: Text(
                   'TODOリスト',
                   textAlign: TextAlign.start,
@@ -34,12 +36,13 @@ class HomeScreen extends StatelessWidget {
                     fontSize: 28,
                     fontStyle: FontStyle.normal,
                     fontWeight: FontWeight.w600,
-                    color: Colors.black,
+                    color: AppColor.black,
                   ),
                 ),
               ),
               Expanded(
-                child: Obx(() => ListView.builder(
+                child: Obx(
+                  () => ListView.builder(
                     controller: ScrollController(),
                     itemCount: todo.length,
                     itemExtent: 111,
@@ -58,10 +61,8 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF2654CB),
-        onPressed: () => controller.onTap(),
-        child: const Icon(Icons.add),
+      floatingActionButton: FloatingActionButtons(
+        onTap: controller.onTap,
       ),
     );
   }

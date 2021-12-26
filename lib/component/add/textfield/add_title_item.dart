@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techtrain_todo_app/color/app_color.dart';
 
 class AddTitleItem extends StatelessWidget {
   const AddTitleItem({
@@ -17,7 +18,7 @@ class AddTitleItem extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(
           fontSize: 17,
-          color: Color(0x292d3680),
+          color: Colors.black45,
           fontStyle: FontStyle.normal,
           fontWeight: FontWeight.w600,
         ),

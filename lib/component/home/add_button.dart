@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techtrain_todo_app/color/app_color.dart';
 
 class AddButton extends StatelessWidget {
   const AddButton({
@@ -18,21 +19,20 @@ class AddButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ElevatedButton(
-          //TODO　この調整がまじでわからん。
-          //onPressed: null,
-          //onPressed: onTap,
-          onPressed: isComplete
-              ? () {
-                  onTap();
-                }
-              : null,
+          style: ElevatedButton.styleFrom(
+            primary: AppColor.buttonColor,
+            onPrimary: AppColor.buttonColor,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0)),
+          ),
+          onPressed: isComplete ? () => onTap() : null,
           child: const Text(
             '作成する',
             style: TextStyle(
               fontWeight: FontWeight.w700,
               fontStyle: FontStyle.normal,
               fontSize: 17,
-              color: Colors.white,
+              color: AppColor.white,
             ),
           ),
         ),

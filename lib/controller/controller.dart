@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:techtrain_todo_app/component/picker/picker.dart';
+import 'package:techtrain_todo_app/component/add/picker/picker.dart';
 import 'package:techtrain_todo_app/model/todo.dart';
 import 'package:techtrain_todo_app/preference/storage_service.dart';
+import 'package:techtrain_todo_app/screen/add/add_screen.dart';
 import 'package:techtrain_todo_app/screen/add/add_screen_ful.dart';
 
 class Controller extends GetxController {
@@ -28,6 +29,7 @@ class Controller extends GetxController {
   final isCategorySelected = false.obs;
   final isTaskName = false.obs;
   final isDetail = false.obs;
+  final dataTime = ''.obs;
 
   @override
   void onInit() {
@@ -52,8 +54,8 @@ class Controller extends GetxController {
   void onTap() {
     showCupertinoModalBottomSheet(
       context: Get.context!,
-      //builder: (context) => AddScreen(),
-      builder: (context) => AddScreenFul(),
+      builder: (context) => AddScreen(),
+      //builder: (context) => AddScreenFul(),
       expand: true,
     );
   }
@@ -157,6 +159,7 @@ class Controller extends GetxController {
     final Duration difference = date.difference(DateTime.now());
 
     //print(difference.inDays);
+    dataTime.value = '${date.year}/${date.month}/${date.day}';
 
     checkDeadline(deadline: difference.inDays);
 

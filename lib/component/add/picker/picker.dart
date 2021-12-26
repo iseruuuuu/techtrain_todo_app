@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:techtrain_todo_app/color/app_color.dart';
 
 class Picker extends StatelessWidget {
   const Picker({
@@ -15,7 +16,7 @@ class Picker extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      color: Colors.white,
+      color: AppColor.white,
       child: Column(
         children: [
           Row(

@@ -1,39 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:techtrain_todo_app/color/app_color.dart';
 import 'package:techtrain_todo_app/controller/controller.dart';
 
-class AddDatePicker extends StatelessWidget {
-  const AddDatePicker({
+class AddPicker extends StatelessWidget {
+  const AddPicker({
     Key? key,
-    required this.isDaySelected,
     required this.title,
+    required this.isCategorySelected,
     required this.noTitle,
-    required this.hintText,
   }) : super(key: key);
 
-  final bool isDaySelected;
   final String title;
+  final bool isCategorySelected;
   final String noTitle;
-  final String hintText;
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(Controller(), tag: '');
     return GestureDetector(
-      onTap: controller.onTapDatePicker,
+      onTap: controller.onTapCategoryPicker,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Container(
           width: double.infinity,
           height: 60,
-          color: const Color(0x292D364D),
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            color: AppColor.grey10,
+          ),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
-              //TODO テキストがでない。。
-              isDaySelected ? hintText : noTitle,
+              isCategorySelected ? title : noTitle,
               style: TextStyle(
-                color: isDaySelected ? Colors.black : const Color(0x292D364D),
+                color: isCategorySelected ? AppColor.black : Colors.black26,
                 fontSize: 17,
                 fontWeight: FontWeight.w400,
                 fontStyle: FontStyle.normal,

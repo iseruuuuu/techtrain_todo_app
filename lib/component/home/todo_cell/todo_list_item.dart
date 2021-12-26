@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techtrain_todo_app/color/app_color.dart';
 import 'package:techtrain_todo_app/model/todo.dart';
 
 class TodoListItem extends StatelessWidget {
@@ -27,7 +28,7 @@ class TodoListItem extends StatelessWidget {
             icon: Icon(
               todo.isCheck ? Icons.check_circle : Icons.circle,
               color: todo.isCheck
-                  ? const Color(0xFF2654CB)
+                  ? AppColor.buttonColor
                   : const Color.fromARGB(16, 38, 84, 203),
             ),
           ),
@@ -35,7 +36,7 @@ class TodoListItem extends StatelessWidget {
             todo.taskName,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
-              color: Colors.white,
+              color: AppColor.white,
               fontWeight: FontWeight.normal,
               fontStyle: FontStyle.normal,
               fontSize: 17,
@@ -68,7 +69,7 @@ class TodoListItem extends StatelessWidget {
                       child: Text(
                         todo.deadline,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: AppColor.white,
                         ),
                       ),
                     ),
@@ -77,7 +78,7 @@ class TodoListItem extends StatelessWidget {
                   Text(
                     todo.day,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: Colors.white60,
                       fontWeight: FontWeight.w500,
                       fontStyle: FontStyle.normal,
                       fontSize: 14,
