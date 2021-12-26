@@ -12,17 +12,20 @@ class Controller extends GetxController {
   final todos = <Todo>[].obs;
   final storage = TodoStorage();
   late final Worker worker;
+
   List<Todo> get _todos => todos;
   final items = <String>['仕事', '買い物', '個人', 'その他'];
   final category = ''.obs;
-  final isComplete = false.obs;
   final task = ''.obs;
   final day = ''.obs;
   final detail = ''.obs;
   Todo? todo;
+  final colorCode = 0xFF75AED7.obs;
+  final isComplete = false.obs;
   final isDaySelected = false.obs;
   final isCategorySelected = false.obs;
-  final colorCode = 0xFF75AED7.obs;
+  final isTaskName = false.obs;
+  final isDetail = false.obs;
 
   @override
   void onInit() {
@@ -36,6 +39,12 @@ class Controller extends GetxController {
       final data = memos.map((e) => e.toJson()).toList();
       storage.save(data);
     });
+
+    checkDeadline();
+  }
+
+  void checkDeadline() {
+    //TODO　ここで後何日を記載する。
   }
 
   //todo HomeScreen
@@ -63,6 +72,7 @@ class Controller extends GetxController {
 
   void onSelectedItemChanged(int index) {
     isCategorySelected.value = true;
+    checkAllWrite();
     category.value = items[index];
     switch (category.value) {
       case '個人':
@@ -124,6 +134,7 @@ class Controller extends GetxController {
     }
     day.value = '${date.month}月${date.day}日$weekday';
     isDaySelected.value = true;
+    checkAllWrite();
   }
 
   void onTap() {
@@ -137,25 +148,28 @@ class Controller extends GetxController {
 
   void onTapClose() {
     Get.back();
+    isComplete.value = false;
+    isTaskName.value = false;
+    isDetail.value = false;
   }
 
   void onChange({required String word, required int index}) {
     switch (index) {
       case 1:
         task.value = word;
+        isTaskName.value = true;
+        checkAllWrite();
         break;
       case 2:
-        day.value = word;
-        break;
-      case 3:
         detail.value = word;
+        isDetail.value = true;
+        checkAllWrite();
         break;
       default:
     }
   }
 
   void onTapSubmit() {
-    //とりあえず、登録はできた。
     final todo = Todo(
       taskName: task.value,
       day: day.value,
@@ -166,5 +180,14 @@ class Controller extends GetxController {
     );
     todos.add(todo);
     Get.back();
+  }
+
+  void checkAllWrite() {
+    if (isDaySelected.value == true &&
+        isCategorySelected.value == true &&
+        isTaskName.value == true &&
+        isDetail.value == true) {
+      isComplete.value = true;
+    } else {}
   }
 }

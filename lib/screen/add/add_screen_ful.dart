@@ -79,15 +79,17 @@ class _AddScreenFulState extends State<AddScreenFul> {
             AddItem(
               title: '詳細',
               hintText: '入力してください',
-              onChange: (text) => controller.onChange(word: text, index: 3),
+              onChange: (text) => controller.onChange(word: text, index: 2),
             ),
 
             //TODO ここも状態管理をしたい
-            Center(
-              child: AddButton(
-                onTap: controller.onTapSubmit,
-                isComplete: controller.isComplete.value,
-                //onTap: controller.onTapSubmit,
+            Obx(
+              () => Center(
+                child: AddButton(
+                  onTap: controller.onTapSubmit,
+                  isComplete: controller.isComplete.value,
+                  //onTap: controller.onTapSubmit,
+                ),
               ),
             ),
           ],

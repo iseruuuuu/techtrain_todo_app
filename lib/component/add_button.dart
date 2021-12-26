@@ -20,13 +20,12 @@ class AddButton extends StatelessWidget {
         child: ElevatedButton(
           //TODO　この調整がまじでわからん。
           //onPressed: null,
-          onPressed: onTap,
           //onPressed: onTap,
-          // onPressed: () =>
-          //   (isComplete)
-          //       ? null
-          //       : null
-          // ,
+          onPressed: isComplete
+              ? () {
+                  onTap();
+                }
+              : null,
           child: const Text(
             '作成する',
             style: TextStyle(
