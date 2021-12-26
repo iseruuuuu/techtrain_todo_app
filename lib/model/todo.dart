@@ -37,6 +37,7 @@ class Todo {
     required this.deadlineColor,
   });
 
+  //値の更新をする際に必要なもの
   Todo copyWith({
     String? id,
     String? taskName,
@@ -64,14 +65,14 @@ class Todo {
   String toJson() {
     return jsonEncode({
       'id': id,
-      '1': taskName,
-      '2': category,
-      '5': detail,
-      '6': day,
-      '7': isCheck,
-      '8': color,
-      '9': deadline,
-      '10': deadlineColor,
+      'taskName': taskName,
+      'category': category,
+      'detail': detail,
+      'day': day,
+      'isCheck': isCheck,
+      'color': color,
+      'deadline': deadline,
+      'deadlineColor': deadlineColor,
     });
   }
 
@@ -79,14 +80,14 @@ class Todo {
     final mapData = jsonDecode(json);
     return Todo.withId(
       id: mapData['id'] as String,
-      taskName: mapData['1'] as String,
-      category: mapData['2'] as String,
-      detail: mapData['5'] as String,
-      day: mapData['6'] as String,
-      isCheck: mapData['7'] as bool,
-      color: mapData['8'] as int,
-      deadline: mapData['9'] as String,
-      deadlineColor: mapData['10'] as int,
+      taskName: mapData['taskName'] as String,
+      category: mapData['category'] as String,
+      detail: mapData['detail'] as String,
+      day: mapData['day'] as String,
+      isCheck: mapData['isCheck'] as bool,
+      color: mapData['color'] as int,
+      deadline: mapData['deadline'] as String,
+      deadlineColor: mapData['deadlineColor'] as int,
     );
   }
 }
