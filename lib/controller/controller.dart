@@ -47,6 +47,18 @@ class Controller extends GetxController {
     //checkDeadline(deadline: 1);
   }
 
+  //HOMEScreen
+
+  void onTap() {
+    showCupertinoModalBottomSheet(
+      context: Get.context!,
+      //builder: (context) => AddScreen(),
+      builder: (context) => AddScreenFul(),
+      expand: true,
+    );
+  }
+
+
   void checkDeadline({required int deadline}) {
     if (deadline == 0) {
       deadLine.value = '今日まで';
@@ -152,20 +164,16 @@ class Controller extends GetxController {
     checkAllWrite();
   }
 
-  void onTap() {
-    showCupertinoModalBottomSheet(
-      context: Get.context!,
-      //builder: (context) => AddScreen(),
-      builder: (context) => AddScreenFul(),
-      expand: true,
-    );
-  }
+
 
   void onTapClose() {
     Get.back();
     isComplete.value = false;
     isTaskName.value = false;
     isDetail.value = false;
+    isCategorySelected.value = false;
+    isDaySelected.value = false;
+
   }
 
   void onChange({required String word, required int index}) {
