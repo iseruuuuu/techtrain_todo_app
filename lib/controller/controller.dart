@@ -35,18 +35,13 @@ class Controller extends GetxController {
     super.onInit();
     final storageMemos =
         storage.load()?.map((json) => Todo.fromJson(json)).toList();
-    //final initialMemos = storageMemos ?? Todo.initialTodos;
     final initialMemos = storageMemos ?? [];
     _todos.addAll(initialMemos);
 
-    // _todosに変化がある度にストレージに保存
     worker = ever<List<Todo>>(todos, (memos) {
       final data = memos.map((e) => e.toJson()).toList();
       storage.save(data);
     });
-
-    //TODO 起動するたびに、期限の更新をする
-    //checkDeadline(deadline: 1);
   }
 
   //HOMEScreen
@@ -54,8 +49,7 @@ class Controller extends GetxController {
   void onTap() {
     showCupertinoModalBottomSheet(
       context: Get.context!,
-      builder: (context) => AddScreen(),
-      //builder: (context) => AddScreenFul(),
+      builder: (context) => const AddScreen(),
       expand: true,
     );
   }
@@ -205,7 +199,6 @@ class Controller extends GetxController {
     todos.add(todo);
     allClear();
     Get.back();
-
   }
 
   void checkAllWrite() {
@@ -226,12 +219,9 @@ class Controller extends GetxController {
     deadLine.value = '';
 
     //記入確認を元に戻す.
-
     isTaskName.value = false;
     isDaySelected.value = false;
     isCategorySelected.value = false;
     isDetail.value = false;
-
-
   }
 }
