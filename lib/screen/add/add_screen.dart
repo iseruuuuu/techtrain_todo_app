@@ -4,8 +4,8 @@ import 'package:techtrain_todo_app/color/app_color.dart';
 import 'package:techtrain_todo_app/component/add/category/add_category_item.dart';
 import 'package:techtrain_todo_app/component/add/day/add_day_item.dart';
 import 'package:techtrain_todo_app/component/add/textfield/add_item.dart';
+import 'package:techtrain_todo_app/component/home/add_button.dart';
 import 'package:techtrain_todo_app/controller/controller.dart';
-import '../../component/home/add_button.dart';
 
 class AddScreen extends StatelessWidget {
   const AddScreen({Key? key}) : super(key: key);
@@ -49,37 +49,35 @@ class AddScreen extends StatelessWidget {
             ),
             AddItem(
               title: 'タスク名',
-              hintText: '20文字以内で入力してください',
-              onChange: (text) => controller.onChange(word: text, index: 1),
+              noTitle: '20文字以内で入力してください',
+              onChange: (text) => controller.onChange(text: text, index: 1),
             ),
             Obx(
               () => AddDayItem(
-                title: '期日',
+                name: '期日',
                 noTitle: '年/月/日',
-                //hintText: controller.day.value,
-                hintText: controller.dataTime.value,
+                title: controller.dataTime.value,
                 isSelected: controller.isDaySelected.value,
               ),
             ),
             Obx(
               () => AddCategoryItem(
-                title: 'カテゴリー',
-                noText: '選択して下さい',
-                hintText: controller.category.value,
+                name: 'カテゴリー',
+                noTitle: '選択して下さい',
+                title: controller.category.value,
                 isSelected: controller.isCategorySelected.value,
               ),
             ),
             AddItem(
               title: '詳細',
-              hintText: '入力してください',
-              onChange: (text) => controller.onChange(word: text, index: 2),
+              noTitle: '入力してください',
+              onChange: (text) => controller.onChange(text: text, index: 2),
             ),
             Obx(
               () => Center(
                 child: AddButton(
                   onTap: controller.onTapSubmit,
                   isComplete: controller.isComplete.value,
-                  //onTap: controller.onTapSubmit,
                 ),
               ),
             ),

@@ -5,16 +5,16 @@ import 'package:techtrain_todo_app/component/add/textfield/add_title_item.dart';
 class AddDayItem extends StatelessWidget {
   const AddDayItem({
     Key? key,
-    required this.title,
+    required this.name,
     required this.noTitle,
     required this.isSelected,
-    required this.hintText,
+    required this.title,
   }) : super(key: key);
 
-  final String title;
+  final String name;
   final String noTitle;
   final bool isSelected;
-  final String hintText;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,13 @@ class AddDayItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AddTitleItem(
-          title: title,
+          title: name,
         ),
         AddDatePicker(
           isDaySelected: isSelected,
-          title: title,
+          title: name,
           noTitle: noTitle,
-          hintText: hintText,
+          hintText: title,
         ),
       ],
     );

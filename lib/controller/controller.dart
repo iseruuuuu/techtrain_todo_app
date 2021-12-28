@@ -175,15 +175,15 @@ class Controller extends GetxController {
     isDaySelected.value = false;
   }
 
-  void onChange({required String word, required int index}) {
+  void onChange({required String text, required int index}) {
     switch (index) {
       case 1:
-        task.value = word;
+        task.value = text;
         isTaskName.value = true;
         checkAllWrite();
         break;
       case 2:
-        detail.value = word;
+        detail.value = text;
         isDetail.value = true;
         checkAllWrite();
         break;

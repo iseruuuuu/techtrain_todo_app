@@ -6,12 +6,12 @@ class AddItem extends StatelessWidget {
   const AddItem({
     Key? key,
     required this.title,
-    required this.hintText,
+    required this.noTitle,
     required this.onChange,
   }) : super(key: key);
 
   final String title;
-  final String hintText;
+  final String noTitle;
   final Function(String) onChange;
 
   @override
@@ -21,7 +21,7 @@ class AddItem extends StatelessWidget {
       children: [
         AddTitleItem(title: title),
         AddTextField(
-          text: hintText,
+          text: noTitle,
           onChange: onChange,
         ),
       ],
