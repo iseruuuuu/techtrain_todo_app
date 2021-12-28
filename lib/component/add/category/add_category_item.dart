@@ -22,7 +22,7 @@ class AddCategoryItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AddTitleItem(
-          title: name,
+          name: name,
         ),
         AddPicker(
           title: title,

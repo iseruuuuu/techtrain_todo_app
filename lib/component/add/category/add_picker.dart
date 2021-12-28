@@ -7,13 +7,13 @@ class AddPicker extends StatelessWidget {
   const AddPicker({
     Key? key,
     required this.title,
-    required this.isCategorySelected,
     required this.noTitle,
+    required this.isCategorySelected,
   }) : super(key: key);
 
   final String title;
-  final bool isCategorySelected;
   final String noTitle;
+  final bool isCategorySelected;
 
   @override
   Widget build(BuildContext context) {

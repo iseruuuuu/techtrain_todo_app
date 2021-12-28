@@ -22,7 +22,7 @@ class TodoListItem extends StatelessWidget {
           color: Color(todo.color),
         ),
         child: ListTile(
-          minVerticalPadding: 5,
+          minVerticalPadding: 6,
           leading: IconButton(
             onPressed: onTap,
             icon: Icon(

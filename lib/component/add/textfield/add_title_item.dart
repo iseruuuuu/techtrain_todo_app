@@ -4,17 +4,17 @@ import 'package:techtrain_todo_app/color/app_color.dart';
 class AddTitleItem extends StatelessWidget {
   const AddTitleItem({
     Key? key,
-    required this.title,
+    required this.name,
   }) : super(key: key);
 
-  final String title;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 28),
       child: Text(
-        title,
+        name,
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(
           fontSize: 17,

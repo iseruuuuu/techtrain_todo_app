@@ -7,15 +7,15 @@ class AddDatePicker extends StatelessWidget {
   const AddDatePicker({
     Key? key,
     required this.isDaySelected,
-    required this.title,
+    required this.name,
     required this.noTitle,
-    required this.hintText,
+    required this.title,
   }) : super(key: key);
 
   final bool isDaySelected;
-  final String title;
+  final String name;
   final String noTitle;
-  final String hintText;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class AddDatePicker extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
-              isDaySelected ? hintText : noTitle,
+              isDaySelected ? title : noTitle,
               style: TextStyle(
                 color: isDaySelected ? AppColor.black : Colors.black26,
                 fontSize: 17,

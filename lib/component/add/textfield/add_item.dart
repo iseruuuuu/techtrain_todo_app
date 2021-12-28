@@ -19,7 +19,9 @@ class AddItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AddTitleItem(title: title),
+        AddTitleItem(
+          name: title,
+        ),
         AddTextField(
           text: noTitle,
           onChange: onChange,

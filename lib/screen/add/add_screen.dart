@@ -44,9 +44,7 @@ class AddScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-              height: 40,
-            ),
+            Container(height: 40),
             AddItem(
               title: 'タスク名',
               noTitle: '20文字以内で入力してください',

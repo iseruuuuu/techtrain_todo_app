@@ -6,15 +6,15 @@ class AddDayItem extends StatelessWidget {
   const AddDayItem({
     Key? key,
     required this.name,
+    required this.title,
     required this.noTitle,
     required this.isSelected,
-    required this.title,
   }) : super(key: key);
 
   final String name;
+  final String title;
   final String noTitle;
   final bool isSelected;
-  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,13 @@ class AddDayItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AddTitleItem(
-          title: name,
+          name: name,
         ),
         AddDatePicker(
           isDaySelected: isSelected,
-          title: name,
+          name: name,
           noTitle: noTitle,
-          hintText: title,
+          title: title,
         ),
       ],
     );
