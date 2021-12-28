@@ -10,10 +10,6 @@ import '../../component/home/add_button.dart';
 class AddScreen extends StatelessWidget {
   const AddScreen({Key? key}) : super(key: key);
 
-//TODO 期日を起動したたびに更新したい。->　見せるだけならいらない？？
-//TODO ちょっとした修正（formなど）
-//TODO 上にスワイプした時にisCompleteの状態を戻したい
-
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(Controller(), tag: '');
